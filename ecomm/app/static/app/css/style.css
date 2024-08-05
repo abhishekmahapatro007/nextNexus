@@ -1,0 +1,43 @@
+.goodnessseccont img{
+    width: 100%;
+    height: 100%;
+}
+.buttermilk{
+    background-color: #fff;
+    background-image:linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    background-image:-webkit-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    background-image:-moz-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    background-image:-ms-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    background-image:-o-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    padding: 50px 40px;
+    border: 1px solid #efe8e1;
+    padding-bottom: 20px;
+} 
+.smbg{
+    background-color: #fff;
+    background-image:linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    background-image:-webkit-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    background-image:-moz-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    background-image: -ms-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    background-image:-o-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+    }
+.curdbgpro{
+        background-color: #fff;
+        background-image:linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+        background-image:-webkit-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+        background-image:-moz-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+        background-image: -ms-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+        background-image:-o-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
+        }
+.mlkpro{
+    color: #636362;
+    font-size: 22px;
+    line-height: 22px;
+    margin-bottom: 15px;
+    width: 43%;
+    margin: 0 auto;
+    text-align: center;
+}
+.goodnesssec a{
+    text-decoration: none;
+}

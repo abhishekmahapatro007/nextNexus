@@ -1,0 +1,115 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Checkout{% endblock title %}
+
+{% block banner-slider %}
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">  
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/strayanimalimage.jpg' %}" class="d-block w-100" alt="Banner 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/stary_animal_rescue.jpg' %}" class="d-block w-100" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/animal_adoption.jpg' %}" class="d-block w-100" alt="Banner 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock banner-slider %} 
+
+{% block information %}
+<div class="container">
+    <div class="row bg-success text-center p-5 text-white border-bottom shadow">
+        <h1>Products</h1>
+        <small class="fs-5">
+            Introducing our "Rescue Ready Pet Starter Pack" – the ultimate solution for new pet owners or those welcoming a rescued furry friend into their homes.
+            This comprehensive kit includes everything your four-legged companion needs to thrive, from nutritious food to cozy bedding and essential grooming supplies.
+            With a focus on quality, convenience, and compassion, our Rescue Ready Pet Starter Pack ensures that both you and your pet can embark on a journey of love and companionship with confidence.
+            Say hello to a lifetime of wagging tails, purrs, and endless cuddles – order yours today and make a difference in the life of a rescued animal.
+        </small>
+    </div>
+</div>
+{% endblock information %}
+
+{% block main-content %}
+<div class="container">
+    <h2 class="text-center">Animal Care Products</h2>
+    <br><br>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'category' 'FD'%}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/meatjerky.png' %}" class="img-responsive" alt="Meat Jerky">
+                        <p class="mlkpro">Pedigree</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="goodnesssec buttermilk curdbgpro">
+                <a href="{% url 'category' 'FD'%}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/pedigree.png' %}" class="img-responsive" alt="Pedigree">
+                        <p class="mlkpro">Cat Food</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="goodnesssec buttermilk buttermilk">
+                <a href="{% url 'category' 'FD'%}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/jumbone.png' %}" class="img-responsive" alt="Jumbone">
+                        <p class="mlkpro">Bird Food</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'category' 'FD'%}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/drools.png' %}" class="img-responsive" alt="Drools">
+                        <p class="mlkpro">Fish Food</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="goodnesssec buttermilk curdbgpro">
+                <a href="{% url 'category' 'TY'%}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/ChewToys.png' %}" class="img-responsive" alt="Chew Toys">
+                        <p class="mlkpro">Cow Food</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="goodnesssec buttermilk buttermilk">
+                <a href="{% url 'category' 'TY'%}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/Plushtoy.png' %}" class="img-responsive" alt="Plush Toy">
+                        <p class="mlkpro">Dog Food</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <!-- New section with cards -->
+</div>
+{% endblock main-content %}

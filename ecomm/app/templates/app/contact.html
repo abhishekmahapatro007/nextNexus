@@ -1,0 +1,152 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}
+    About
+{% endblock title %}
+
+{% block banner-slider %}
+<style>
+    .carousel-item {
+        height: 500px; /* Set your desired height */
+    }
+    
+    .carousel-item img {
+        height: 100%;
+        width: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Optionally, cover the entire area */
+    }
+</style>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">  
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/strayanimalimage.jpg' %}" class="d-block w-100" alt="Banner 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/stray_animal_rescue.jpg' %}" class="d-block w-100" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/animal_adoption.jpg' %}" class="d-block w-100" alt="Banner 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock banner-slider %} 
+
+{% block main-content %}
+{% block main_content %}
+<style>
+    .contact-container {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .contact-container h2 {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+    
+    .contact-container p {
+        font-family: 'Arial', sans-serif;
+        color: #666;
+    }
+    
+    .contact-info h4 {
+        font-family: 'Arial', sans-serif;
+        color: #555;
+        margin-bottom: 15px;
+    }
+    
+    .contact-info p {
+        font-family: 'Arial', sans-serif;
+        color: #777;
+    }
+    
+    .contact-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    
+    .contact-form h4 {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    
+    .contact-form .form-label {
+        font-family: 'Arial', sans-serif;
+        color: #555;
+    }
+    
+    .contact-form .form-control {
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .contact-form .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 5px;
+    }
+    
+    .contact-form .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+</style>
+<div class="container mt-4 contact-container">
+    <h2 class="text-center">Contact Us</h2>
+    <p class="text-center">We'd love to hear from you! You can contact us through the form below or reach out to us via phone or email.</p>
+
+    <div class="row contact-info">
+        <!-- Contact Information -->
+        <div class="col-md-4 text-center">
+            <h4>Address</h4>
+            <p>123 Main St.<br>Pune, Maharashtra<br>India, 411001</p>
+        </div>
+
+        <div class="col-md-4 text-center">
+            <h4>Phone</h4>
+            <p>+91 123 456 7890</p>
+        </div>
+
+        <div class="col-md-4 text-center">
+            <h4>Email</h4>
+            <p>info@yourcompany.com</p>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="mt-4 contact-form">
+        <h4>Send Us a Message</h4>
+        <form method="post">
+            {% csrf_token %}  <!-- CSRF protection token for Django forms -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% endblock main-content %}

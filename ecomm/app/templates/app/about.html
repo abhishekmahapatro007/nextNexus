@@ -1,0 +1,88 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}
+    About
+{% endblock title %}
+
+{% block banner-slider %}
+<style>
+    .carousel-item {
+        height: 500px; /* Set your desired height */
+    }
+
+    .carousel-item img {
+        height: 100%;
+        width: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Optionally, cover the entire area */
+    }
+</style>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/strayanimalimage.jpg' %}" class="d-block w-100" alt="Banner 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/stray_animal_rescue.jpg' %}" class="d-block w-100" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/animal_adoption.jpg' %}" class="d-block w-100" alt="Banner 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock banner-slider %}
+
+{% block main-content %}
+<style>
+    .about-section, .mission-section {
+        background-color: #f9f9f9;
+        padding: 40px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+    .about-section h2, .mission-section h2 {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+
+    .about-section p, .mission-section p {
+        font-family: 'Arial', sans-serif;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .about-section p.fs-4, .mission-section p.fs-4 {
+        font-size: 1.25rem; /* Adjust font size to your preference */
+    }
+</style>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 about-section text-center">
+            <h2>About Us</h2>
+            <p class="fs-4">
+                This is a public limited company having its registered and corporate office at Bhubaneswar City of Odisha State in India. The company was incorporated in the year 2024 and production commenced in 2024.
+                This is one of the fastest-growing Public Listed Companies in Bhubaneswar.
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 mission-section text-center">
+            <h2>Mission</h2>
+            <p class="fs-4">
+                Our mission is to revolutionize the welfare of stray animals through technological innovation by creating a comprehensive, user-friendly website . This platfom aims to Facilitate Prompt Assistance , Promote Responsible Ownership and Streamline the Adoption Process.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

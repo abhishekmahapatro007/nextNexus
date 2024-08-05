@@ -1,0 +1,84 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block pre-carousel-content %}
+<style>
+    .card-with-bg {
+        background-size: cover; /* Ensure the background image covers the entire card */
+        background-position: center; /* Center the image */
+        color: white; /* White text for readability */
+        height: 400px; /* Double the height of the card */
+        border-radius: 15px; /* Rounded corners */
+        position: relative; /* For overlay positioning */
+        overflow: hidden; /* Prevent text from spilling out of rounded edges */
+    }
+    
+    .card-overlay {
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay for contrast */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    
+    .card-body {
+        z-index: 1; /* Ensures body content is above overlay */
+    }
+    
+    .card-title {
+        font-size: 1.5rem; /* Larger title size */
+    }
+    
+    .card-text {
+        font-size: 1rem; /* Standard text size */
+    }
+    
+    .btn-primary {
+        background-color: #007bff; /* Bootstrap primary blue */
+        border: none; /* No border on buttons */
+    }
+    
+    </style>
+<div class="container my-5"> <!-- Adds some margin around the whole section -->
+    <div class="row">
+        <!-- Card for Stray Animal Rescue -->
+        <div class="col-md-4 col-sm-6 mb-4"> <!-- Responsive classes for medium and small screens -->
+            <div class="card text-center shadow-sm card-with-bg" style="background-image: url('{% static 'app/images/stray_animal_rescue.jpg' %}')"> <!-- Set background image -->
+                <div class="card-overlay"></div> <!-- Overlay for text readability -->
+                <div class="card-body">
+                    <h3 class="card-title">Stray Animal Rescue</h3>
+                    <p class="card-text">Report a stray animal in need of rescue or assistance. Our team provides emergency rescue and care for these animals.</p>
+                    <a href="{% url "reportStrayAnimals"%}" class="btn btn-primary">Report a Stray</a> <!-- Call to action -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card for E-commerce Site -->
+        <div class="col-md-4 col-sm-6 mb-4"> <!-- Responsive classes for medium and small screens -->
+            <div class="card text-center shadow-sm card-with-bg" style="background-image: url('{% static 'app/images/ecommerce.jpg' %}')"> <!-- Background image -->
+                <div class="card-overlay"></div> <!-- Overlay for contrast -->
+                <div class="card-body">
+                    <h3 class="card-title">E-commerce Site</h3>
+                    <p class="card-text">Explore a wide range of animal care products, from food to toys. Everything you need for your pets is just a click away.</p>
+                    <a href="{% url 'category' 'FD'%}" class="btn btn-primary">Shop Now</a> <!-- Call to action -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card for Animal Adoption -->
+        <div class="col-md-4 col-sm-12 mb-4"> <!-- Responsive classes for medium and small screens -->
+            <div class="card text-center shadow-sm card-with-bg" style="background-image: url('{% static 'app/images/animal_adoption.jpg' %}')"> <!-- Background image -->
+                <div class="card-overlay"></div> <!-- Overlay for contrast -->
+                <div class="card-body">
+                    <h3 class="card-title">Animal Adoption</h3>
+                    <p class="card-text">Interested in adopting an animal? Visit our adoption center to find your perfect companion. Give a loving home to a pet in need.</p>
+                    <a href="#" class="btn btn-primary">Adopt Now</a> <!-- Call to action -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock pre-carousel-content %}

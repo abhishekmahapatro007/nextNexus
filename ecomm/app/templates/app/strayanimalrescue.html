@@ -1,0 +1,90 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block title %}Stray Animals Rescue{% endblock title %}
+
+{% block main-content %}
+<style>
+  .form-background {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-field {
+    margin-bottom: 15px;
+  }
+
+  .form-label {
+    font-weight: bold;
+    color: #555;
+  }
+
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+
+  .text-center {
+    margin-bottom: 30px;
+  }
+
+  .alert {
+    margin-top: 20px;
+  }
+</style>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6"> <!-- Adjusted column size for better form width -->
+      <h3 class="text-center">Report Here</h3> <!-- Centered heading -->
+      <hr>
+
+      <form action="" method="post" class="shadow p-4 rounded form-background"> <!-- Additional padding and rounded corners with background image -->
+        {% csrf_token %}
+        {% for fm in form %} <!-- Loop through form fields -->
+          <div class="form-field"> <!-- Consistent spacing between form elements -->
+            <label for="{{ fm.id_for_label }}" class="form-label">{{ fm.label }}</label> <!-- Label with custom styling -->
+            {{ fm }} <!-- Form input with custom class -->
+            <small class="text-danger">{{ fm.errors|striptags }}</small> <!-- Display form errors -->
+          </div>
+        {% endfor %}
+        
+        <input type="submit" value="Submit" class="btn btn-primary"> <!-- Full-width submit button with hover effect -->
+        
+        <!-- Display non-field errors with improved styling -->
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <p class="alert alert-danger">{{ error }}</p> <!-- Alert for non-field errors -->
+          {% endfor %}
+        {% endif %}
+        
+        <!-- Display messages with improved styling -->
+        {% if messages %}
+          {% for msg in messages %}
+            <div class="alert alert-{{ msg.tags }}" role="alert"> <!-- Display Bootstrap alerts -->
+              {{ msg }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+<br><br>
+{% endblock main-content %}

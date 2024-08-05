@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome 5 -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    
+    <title>animal care product | {% block title %}{% endblock title %}</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to right, #43cea2, #185a9d);"> <!-- Gradient background -->
+    <div class="container-fluid">
+      <!-- Brand with logo -->
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'app/images/pawsIcon.png' %}" width="70" height="50" class="d-inline-block align-top rounded" alt="Logo"> <!-- Rounded logo -->
+      </a>
+      
+      <!-- Toggle button for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Navbar content -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Left side of the navbar -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/" style="transition: color 0.3s;">Home</a> <!-- Smooth transition -->
+          </li>
+          
+          <!-- Dropdown for Products -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'category' 'FD'%}">Animal Food</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'TY'%}">Toys</a></li>
+              
+            </ul>
+          </li>
+          
+          <!-- Other static links -->
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'about'%}">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'contact'%}">Contact Us</a>
+          </li>
+          
+          {% endif %}
+        </ul>
+        
+        <!-- Search form -->
+       
+  
+      <!-- Right side of the navbar -->
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown mx-2">
+          <a class="nav-link dropdown-toggle text-white" href="#"
+          id="profileDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">Subhransu</a> <!-- User name in dropdown -->
+          <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="{%url 'profile'%}">Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'orders'%}">Orders</a></li>
+            <li><a class="dropdown-item" href="{% url 'passwordchange'%}">Change Password</a></li>
+            <li><form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-danger">Logout</button> <!-- Logout button with different color -->
+            </form></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item mx-2">
+          <a href="{% url 'showcart'%}" class="nav-link text-white"><span class="badge bg-danger">{% if totalitem > 0 %} {{totalitem}} {% endif %} </span>Cart </a> <!-- Adjusted spacing -->
+        </li>
+        
+        <li class="nav-item mx-2">
+          <a href="#" class="nav-link text-white">Wishlist 4</a> <!-- Adjusted spacing -->
+        </li>
+        
+        {% else %}
+        <li class="nav-item mx-2">
+          <a href="{% url 'login'%}" class="nav-link text-white">Login</a>
+        </li>
+        
+        <li class="nav-item mx-2">
+          <a href="{% url 'customerregistration'%}" class="nav-link text-white">Registration</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  
+      {% block pre-carousel-content %}{% endblock pre-carousel-content %}
+      {% block banner-slider %}{% endblock banner-slider %}
+      {% block information %}{% endblock information %}
+      {% block main-content %}{% endblock main-content %}
+      {% block payment-gateway %}{% endblock payment-gateway %}
+      {% block scripts %}{% endblock scripts %}
+
+
+      <footer class="container-fluid  text-white text-center py-3 " style="background: linear-gradient(to right, #43cea2, #185a9d)"> <!-- Changed p-2 to py-3 for vertical padding -->
+        <div class="row"> <!-- Split into rows for layout -->
+          <!-- Contact Information -->
+          <div class="col-md-4"> <!-- Each section occupies a third of the footer -->
+            <h5>Contact Us</h5> <!-- Section heading -->
+            <p>Email: subhransunayak10@gmail.com<br> <!-- Contact information -->
+            Phone: +919938445295</p>
+          </div>
+          
+          <!-- Quick Links -->
+          
+          
+          <div class="col-md-4"> <!-- Right section for social media icons -->
+            <h5>Quick Links</h5> <!-- Section heading -->
+            <div class="d-flex justify-content-center"> <!-- Center the icons -->
+              <a href="{% url 'home'%}" class="mx-2 text-white"> <!-- Spacing and white text -->
+                <i class="fas fa-home mr-2"></i> <!-- Font Awesome Facebook icon -->
+              </a>
+              <a href="#" class="mx-2 text-white"> <!-- Twitter icon -->
+                <i class="fas fa-info-circle mr-2"></i>
+              </a>
+              <a href="#" class="mx-2 text-white"> <!-- Instagram icon -->
+                <i class="fas fa-envelope mr-2"></i>
+              </a>
+              <a href="#" class="mx-2 text-white"> <!-- LinkedIn icon -->
+                <i class="fas fa-user-secret mr-2"></i>
+              </a>
+              <a href="#" class="mx-2 text-white"> <!-- LinkedIn icon -->
+                <i class="fas fa-file-contract mr-2"></i>
+              </a>
+            </div>
+          </div>
+        
+          
+          <!-- Social Media -->
+          <div class="col-md-4 "> <!-- Right section for social media icons -->
+            <h5>Follow Us</h5> <!-- Section heading -->
+            <div class="d-flex justify-content-center"> <!-- Center the icons -->
+              <a href="https://www.facebook.com/strayanimalfoundationofindia/" class="mx-2 text-white"> <!-- Spacing and white text -->
+                <i class="fab fa-facebook"></i> <!-- Font Awesome Facebook icon -->
+              </a>
+             
+              <a href="https://www.instagram.com/streetanimalwelfare/?hl=en" class="mx-2 text-white"> <!-- Instagram icon -->
+                <i class="fab fa-instagram"></i>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- Copyright information -->
+        <div class="mt-3"> <!-- Margin-top for spacing -->
+          <small>Copyright &copy; 2024 | Developed by Subhransu , Abhisekh , Omm , Gourab</small> <!-- Small font for copyright -->
+        </div>
+      </footer>
+      
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{%static 'app/js/owl.carousel.min.js'%}"></script>
+    <script src="{%static 'app/js/all.min.js'%}"></script>
+    <script src="{%static 'app/js/myscript.js'%}"></script>
+
+</body>
+</html>

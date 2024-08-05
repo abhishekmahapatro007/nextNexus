@@ -1,0 +1,21 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Payment Cancelled{% endblock title %}
+{% block main-content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-warning text-center" role="alert">
+                <h4 class="alert-heading">Payment Cancelled</h4>
+                <p>Your payment has been cancelled. You can try again or contact our support if you have any questions.</p>
+                <hr>
+                <p class="mb-0">If you need assistance, please <a href="{% url 'contact' %}">contact us</a>.</p>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{% url 'checkout' %}" class="btn btn-primary">Retry Payment</a>
+                <a href="{% url 'cart' %}" class="btn btn-secondary">Return to Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
